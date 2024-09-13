@@ -44,12 +44,12 @@ public class PageController {
 
   @GetMapping("/contact")
   public String getContactPage() {
-    return new String("contact");
+    return "contact";
   }
 
-  @RequestMapping("/login")
+  @GetMapping("/login")
   public String getLoginPage() {
-    return new String("login");
+    return "login";
   }
 
   @GetMapping("/register")
@@ -57,7 +57,7 @@ public class PageController {
     UserForm userform = new UserForm();
     // userform.setUsername("Rohit");
     model.addAttribute("userForm", userform);
-    return new String("register");
+    return "register";
   }
 
   // Processing Request
@@ -82,13 +82,15 @@ public class PageController {
     user.setAbout(userForm.getAbout());
     user.setPhoneNumber(userForm.getPhoneNumber());
     user.setProfilePic("");
-    user.setEnabled(true);
+    user.setEnabled(false);
 
     userService.save(user);
 
     // add the message
     System.out.println("User saved.");
-    Message message = Message.builder().content("Registration Successful").type(MessageType.green).build();
+    Message message = Message.builder()
+        .content("Registration Successful, An email has been sent to verify your account.").type(MessageType.green)
+        .build();
     session.setAttribute("message", message);
     // redirect
     return "redirect:/register";

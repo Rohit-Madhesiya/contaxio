@@ -1,6 +1,5 @@
 package com.madhesiya.smartcontactmanager.entities;
 
-import java.text.Collator;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -18,6 +17,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -45,7 +45,10 @@ public class User implements UserDetails {
   private String about;
   @Column(length = 1000)
   private String ProfilePic;
+
+  @Getter(value = AccessLevel.NONE)
   private boolean enabled = false;
+
   private boolean emailVerified = false;
   private boolean phoneVerified = false;
 
@@ -60,6 +63,8 @@ public class User implements UserDetails {
   @ElementCollection(fetch = FetchType.EAGER)
   private List<String> roleList = new ArrayList<>();
 
+  private String emailToken;
+
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
     // list of roles(ADMIN,USER)
@@ -68,6 +73,30 @@ public class User implements UserDetails {
     Collection<SimpleGrantedAuthority> roles = roleList.stream().map(role -> new SimpleGrantedAuthority(role))
         .collect(Collectors.toList());
     return roles;
+  }
+
+  @Override
+  public boolean isAccountNonExpired() {
+    return true;
+  }
+
+  @Override
+  public boolean isAccountNonLocked() {
+    return true;
+  }
+
+  @Override
+  public boolean isCredentialsNonExpired() {
+    return true;
+  }
+
+  @Override
+  public boolean isEnabled() {
+    return this.enabled;
+  }
+
+  public String getEmail() {
+    return this.email;
   }
 
 }

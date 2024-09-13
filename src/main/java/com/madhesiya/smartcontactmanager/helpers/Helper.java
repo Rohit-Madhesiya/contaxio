@@ -1,8 +1,13 @@
 package com.madhesiya.smartcontactmanager.helpers;
 
+import java.security.Principal;
+
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.user.OAuth2User;
+
+import com.madhesiya.smartcontactmanager.entities.User;
 
 public class Helper {
 
@@ -37,10 +42,18 @@ public class Helper {
 
     } else {
       // if loggedin with email
-      System.out.println("Logged in with database");
-      return authentication.getName();
+      User user = (User) authentication.getPrincipal();
+      System.out.println("Logged in with database: " + user.getEmail());
+
+      return user.getEmail();
     }
 
+  }
+
+  public static String getEmailVerificationLink(String emailToken) {
+
+    String link = "http://localhost:8081/auth/verify-email?token=" + emailToken;
+    return link;
   }
 
 }

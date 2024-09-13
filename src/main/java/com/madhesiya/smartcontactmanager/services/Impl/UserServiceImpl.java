@@ -12,8 +12,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.madhesiya.smartcontactmanager.entities.User;
+import com.madhesiya.smartcontactmanager.helpers.Helper;
 import com.madhesiya.smartcontactmanager.helpers.ResourceNotFoundException;
 import com.madhesiya.smartcontactmanager.repositories.UserRepository;
+import com.madhesiya.smartcontactmanager.services.EmailService;
 import com.madhesiya.smartcontactmanager.services.UserService;
 
 @Service
@@ -29,6 +31,9 @@ public class UserServiceImpl implements UserService {
   @Value("${spring.security.user.roles}")
   private List<String> role_list;
 
+  @Autowired
+  private EmailService emailService;
+
   @Override
   public User save(User user) {
     String userId = UUID.randomUUID().toString();
@@ -40,7 +45,15 @@ public class UserServiceImpl implements UserService {
 
     logger.info(user.getProvider().toString());
 
-    return userRepository.save(user);
+    String token = UUID.randomUUID().toString();
+    user.setEmailToken(token);
+
+    User savedUser = userRepository.save(user);
+    token = Helper.getEmailVerificationLink(token);
+
+    emailService.sendEmail(savedUser.getEmail(), "Verify Account: Smart Contact Manager", token);
+
+    return savedUser;
   }
 
   @Override
@@ -94,6 +107,11 @@ public class UserServiceImpl implements UserService {
   @Override
   public User getUserByEmail(String email) {
     return userRepository.findByEmail(email).orElse(null);
+  }
+
+  @Override
+  public User getUserByEmailToken(String token) {
+    return userRepository.findByEmailToken(token).orElse(null);
   }
 
 }

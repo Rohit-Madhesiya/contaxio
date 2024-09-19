@@ -56,6 +56,7 @@ public class SecurityConfig {
       // TODO: Test this restriction
       // authorize.requestMatchers("/api/**").authenticated();
       authorize.anyRequest().permitAll();
+
     });
 
     // form default login

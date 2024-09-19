@@ -4,15 +4,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Contact Manager</title>
+    <title>Contaxio-Home</title>
 </head>
 
 <body>
-    <div th:replace="~{base :: parent(~{::.container},~{},~{})}">
+    <div th:replace="~{base :: parent(~{::.container},~{::title},~{})}">
 
         <div class="container">
-            <h2>Hello World!</h2>
-            <p data-th-text="${name}" class="font-bold ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem rem excepturi non natus debitis quod? Aut, quis laboriosam! Consectetur, facere suscipit? Magnam consequatur assumenda eius illo beatae ratione eos recusandae labore temporibus!</p>
+            <!-- Banner Section -->
+            <section class="bg-gray-200 py-10 animate__animated animate__fadeInDown dark:bg-gray-900 dark:text-white">
+                <div class="container mx-auto text-center">
+                    <h2 class="text-4xl font-bold mb-4">Welcome to Contaxio</h2>
+                    <p class="text-lg mb-8">A Smart Contact Manager, Manage all your contacts effortlessly and securely
+                        in one place.</p>
+                    <a data-th-href="@{'/login'}"
+                        class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
+                        Get Started</a>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="py-10 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+                <div class="container mx-auto text-center">
+                    <h2 class="text-3xl font-bold mb-12 animate__animated animate__fadeInUp dark:text-white">Features
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 p-4">
+                        <div
+                            class="p-6 bg-gray-100 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105 dark:bg-gray-700">
+                            <i class="fas fa-address-book text-blue-600 text-4xl mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2 dark:text-white">Easy Contact Management</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Add, edit, and organize your contacts in a
+                                user-friendly interface.</p>
+                        </div>
+                        <div
+                            class="p-6 bg-gray-100 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105 dark:bg-gray-700">
+                            <i class="fas fa-lock text-blue-600 text-4xl mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2 dark:text-white">Secure Storage</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Your data is protected with top-level encryption
+                                and security measures.</p>
+                        </div>
+                        <div
+                            class="p-6 bg-gray-100 rounded shadow hover:shadow-lg transition duration-300 transform hover:scale-105 dark:bg-gray-700">
+                            <i class="fas fa-globe text-blue-600 text-4xl mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2 dark:text-white">24/7 Access</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Access your contacts anytime, anywhere from any
+                                device.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Call to Action Section -->
+            <section class="bg-gray-200 py-10 animate__animated animate__fadeInUp dark:bg-gray-900">
+                <div class="container mx-auto text-center">
+                    <h2 class="text-3xl font-bold mb-4">Ready to Manage Your Contacts?</h2>
+                    <p class="text-lg mb-8">Sign up today and experience the easiest way to manage your contacts.</p>
+                    <a data-th-href="@{'/register'}"
+                        class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
+                        Create an Account</a>
+                </div>
+            </section>
+
+
+            <!-- Testimonials Section -->
+            <div
+                class="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 md:grid-cols-2 bg-white dark:bg-gray-800">
+                <figure
+                    class="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 rounded-t-lg md:rounded-t-none md:rounded-ss-lg md:border-e dark:bg-gray-800 dark:border-gray-700">
+                    <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Very easy this was to integrate
+                        </h3>
+                        <p class="my-4">If you care for your time, I hands down would go with this."</p>
+                    </blockquote>
+                    <figcaption class="flex items-center justify-center ">
+                        <img class="rounded-full w-9 h-9"
+                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png"
+                            alt="profile picture">
+                        <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
+                            <div>Bonnie Green</div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400 ">Developer at Open AI</div>
+                        </div>
+                    </figcaption>
+                </figure>
+                <figure
+                    class="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 md:rounded-se-lg dark:bg-gray-800 dark:border-gray-700">
+                    <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Solid foundation for any project
+                        </h3>
+                        <p class="my-4">Designing with Figma components that can be easily translated to the utility
+                            classes of Tailwind CSS is a huge timesaver!"</p>
+                    </blockquote>
+                    <figcaption class="flex items-center justify-center ">
+                        <img class="rounded-full w-9 h-9"
+                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png"
+                            alt="profile picture">
+                        <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
+                            <div>Roberta Casas</div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400">Lead designer at Dropbox</div>
+                        </div>
+                    </figcaption>
+                </figure>
+                <figure
+                    class="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 md:rounded-es-lg md:border-b-0 md:border-e dark:bg-gray-800 dark:border-gray-700">
+                    <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Mindblowing workflow</h3>
+                        <p class="my-4">Aesthetically, the well designed components are beautiful and will undoubtedly
+                            level up your next application."</p>
+                    </blockquote>
+                    <figcaption class="flex items-center justify-center ">
+                        <img class="rounded-full w-9 h-9"
+                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
+                            alt="profile picture">
+                        <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
+                            <div>Jese Leos</div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400">Software Engineer at Facebook</div>
+                        </div>
+                    </figcaption>
+                </figure>
+                <figure
+                    class="flex flex-col items-center justify-center p-8 text-center bg-white border-gray-200 rounded-b-lg md:rounded-se-lg dark:bg-gray-800 dark:border-gray-700">
+                    <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Efficient Collaborating</h3>
+                        <p class="my-4">You have many examples that can be used to create a fast prototype for your
+                            team."</p>
+                    </blockquote>
+                    <figcaption class="flex items-center justify-center ">
+                        <img class="rounded-full w-9 h-9"
+                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
+                            alt="profile picture">
+                        <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
+                            <div>Joseph McFall</div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400">CTO at Google</div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+
+
+            <!-- Footer Section -->
+
         </div>
     </div>
 

@@ -4,21 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-th-text="${userProfile.username+' | Dashboard'}">Dasboard Page</title>
+    <title data-th-text="${userProfile.username+' | Dashboard'}">Contaxio-Dasboard Page</title>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container flex justify-between">
         <!-- sidebar -->
         <div data-th-if="${userProfile}">
             <div data-th-replace="~{user/sidebar :: sidebar}"></div>
         </div>
 
 
-        <div class="sm:pl-64 pt-20" style="height: 1000px;">
+        <div class=" p-10" style="height: 1000px;">
             <div class="flex justify-center flex-col items-center">
                 <h1 class="text-5xl">Welcome to Dashboard Page</h1>
-                <p class="">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem rem excepturi non natus debitis quod? Aut, quis laboriosam! Consectetur, facere suscipit? Magnam consequatur assumenda eius illo beatae ratione eos recusandae labore temporibus!</p>
+                <p class="">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem rem excepturi non natus
+                    debitis quod? Aut, quis laboriosam! Consectetur, facere suscipit? Magnam consequatur assumenda eius
+                    illo beatae ratione eos recusandae labore temporibus!</p>
             </div>
         </div>
     </div>

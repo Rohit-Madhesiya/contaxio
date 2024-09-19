@@ -4,20 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-th-text="${userProfile.username+' | Dashboard'}">Add Contact Page</title>
+    <title data-th-text="${userProfile.username+' | Dashboard'}">Contaxio-Add Contact</title>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container flex">
         <!-- sidebar -->
         <div data-th-if="${userProfile}">
             <div data-th-replace="~{user/sidebar :: sidebar}"></div>
         </div>
 
 
-        <div class="sm:pl-64 pt-20" style="height: 1000px;">
+        <div class="w-full p-10" style="height: 1000px;">
             <div class="grid grid-cols-12">
-                <div class="col-span-3 border"></div>
+                <div class="col-span-3"></div>
                 <div class="col-span-12 md:col-span-6 ">
                     <div
                         class="card block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">

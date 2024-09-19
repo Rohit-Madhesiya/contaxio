@@ -4,23 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-th-text="${userProfile.username+' | SCM'}">Profile Page</title>
+    <title data-th-text="${userProfile.username+' | Contaxio'}">Contaxio-Profile Page</title>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container flex ">
         <!-- sidebar -->
         <div data-th-if="${userProfile}">
             <div data-th-replace="~{user/sidebar :: sidebar}"></div>
         </div>
-        <div class="sm:pl-64 pt-20 bg-gray-100 dark:bg-gray-900 flex justify-center items-center">
+
+        <div class=" p-10 w-full bg-gray-100 dark:bg-gray-900 flex justify-center items-center">
             <!-- profile card -->
 
             <div class="max-w-xl w-full bg-white dark:bg-gray-800 shadow-lg rounded-2xl overflow-hidden">
                 <!-- Profile Picture Section -->
                 <div class="bg-gray-200 dark:bg-gray-700 p-6 flex justify-center">
-                    <img onerror="this.onerror=null; this.src='https://www.pngitem.com/pimgs/m/35-350426_profile-icon-png-default-profile-picture-png-transparent.png'"
-                        th:src="@{${userProfile.profilePic}}" alt="Profile Picture"
+                    <img data-th-src="@{${userProfile.profilePic}}"
+                        onerror="this.onerror=null; this.src='https://www.pngitem.com/pimgs/m/35-350426_profile-icon-png-default-profile-picture-png-transparent.png'"
+                        alt="Profile Picture"
                         class="w-32 h-32 rounded-full border-4 border-gray-300 dark:border-gray-600 shadow-md object-cover">
                 </div>
 
@@ -75,7 +77,6 @@
                 </div>
             </div>
         </div>
-
 </body>
 
 </html>

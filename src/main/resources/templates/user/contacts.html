@@ -4,18 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Your Contacts</title>
+    <title>Contaxio-All Your Contacts</title>
 </head>
 
 <body>
-    <div class="container " style="max-width: unset;">
+    <div class="container flex">
         <!-- sidebar -->
         <div data-th-if="${userProfile}">
             <div data-th-replace="~{user/sidebar :: sidebar}"></div>
         </div>
 
-
-        <div class="sm:pl-64 pt-10">
+        <div class="w-full p-10">
             <div class="">
                 <h1 class="text-center text-5xl">Welcome to Contact Page</h1>
                 <p class="text-center">List of all contacts</p>
@@ -124,7 +123,8 @@
                                         <div>
                                             <button th:onclick="deleteContact([[${contact.id}]])"><i
                                                     class="fa-solid fa-trash-can w-6 h-6"></i></button>
-                                            <a href=""><i class="fa-solid fa-pen-to-square w-6 h-6"></i></a>
+                                            <a data-th-href="@{'/user/contacts/view/'+*{id}}">
+                                                <i class="fa-solid w-6 h-6 fa-pen"></i></a>
                                             <button th:onclick="loadContactData([[${contact.id}]])"><i
                                                     class="fa-solid fa-eye w-6 h-6"></i></button>
                                         </div>
@@ -157,7 +157,10 @@
                                 </ul>
                             </nav>
                         </div>
-                        <h2 data-th-if="${pageContact.empty}" class="text-5xl text-center bg-white p-4">No result found!
+                        <h2 data-th-if="${pageContact.empty}"
+                            class="text-5xl text-center text-gray-400 bg-white p-4 dark:text-gray-600 dark:bg-gray-800">
+                            No
+                            result found!
                         </h2>
                     </div>
 
@@ -166,10 +169,7 @@
 
             </div>
             <div data-th-replace="~{user/contact_modal :: contact}"></div>
-
         </div>
-
-
     </div>
     <script data-th-src="@{/js/contacts.js}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -34,6 +34,9 @@ public class UserServiceImpl implements UserService {
   @Autowired
   private EmailService emailService;
 
+  @Autowired
+  private Helper helper;
+
   @Override
   public User save(User user) {
     String userId = UUID.randomUUID().toString();
@@ -49,9 +52,9 @@ public class UserServiceImpl implements UserService {
     user.setEmailToken(token);
 
     User savedUser = userRepository.save(user);
-    token = Helper.getEmailVerificationLink(token);
+    token = helper.getEmailVerificationLink(token);
 
-    emailService.sendEmail(savedUser.getEmail(), "Verify Account: Smart Contact Manager", token);
+    emailService.sendEmail(savedUser.getEmail(), savedUser.getUsername()+", Verify your account - Contaxio", token);
 
     return savedUser;
   }

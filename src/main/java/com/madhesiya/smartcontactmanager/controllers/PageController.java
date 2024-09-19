@@ -24,10 +24,17 @@ public class PageController {
   @Autowired
   private UserService userService;
 
+  @GetMapping("/")
+  public String homeInit2(Model model) {
+    System.out.println("Home Page Handler..");
+    model.addAttribute("name", "Contaxio");
+    return "home";
+  }
+
   @RequestMapping("/home")
   public String home(Model model) {
     System.out.println("Home Page Handler..");
-    model.addAttribute("name", "Smart Contact Manager");
+    model.addAttribute("name", "Contaxio");
     return "home";
   }
 

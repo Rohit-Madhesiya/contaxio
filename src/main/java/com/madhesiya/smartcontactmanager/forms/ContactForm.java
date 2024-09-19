@@ -2,6 +2,8 @@ package com.madhesiya.smartcontactmanager.forms;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.madhesiya.smartcontactmanager.validators.ValidFile;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -38,5 +40,8 @@ public class ContactForm {
   private String linkedInLink;
 
   // custom annotation create to validate file-size,resolution
+  @ValidFile(message = "Invalid File")
   private MultipartFile contactImg;
+
+  private String picture;
 }

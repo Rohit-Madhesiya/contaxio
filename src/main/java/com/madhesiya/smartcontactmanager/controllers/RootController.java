@@ -32,7 +32,8 @@ public class RootController {
     User user = userService.getUserByEmail(username);
 
     logger.info("name: {}", user.getUsername());
-    logger.info("phone: {}", user.getPhoneNumber());
+    logger.info("email: {}", user.getEmail());
+    logger.info("Profile Picture: {}", user.getProfilePic());
     model.addAttribute("userProfile", user);
   }
 }

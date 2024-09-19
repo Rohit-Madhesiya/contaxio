@@ -14,7 +14,7 @@ public interface ContactService {
 
   Contact getById(String id);
 
-  Optional<Contact> update(Contact contact);
+  Contact update(Contact contact);
 
   List<Contact> getAll();
 

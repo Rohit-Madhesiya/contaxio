@@ -3,8 +3,6 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=rohit-madhesiya&label=Profile%20views&color=0e75b6&style=flat" alt="rohit-madhesiya" /> </p>
 
-- 🔭 I’m currently working on [Tata Consultancy Services](https://www.tcs.com/)
-
 - 🌱 I’m currently learning **AWS, Spring Boot, and TypeScript**
 
 - 👨‍💻 All of my projects are available at [https://github.com/Rohit-Madhesiya](https://github.com/Rohit-Madhesiya)
